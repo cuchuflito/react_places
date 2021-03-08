@@ -1,0 +1,67 @@
+.sideDrawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 75%;
+  background-color: aquamarine;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+.LinkContainer {
+  display: flex;
+  flex-direction: row;
+  height: 75%;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.25rem;
+}
+.LinkContainer ul {
+  list-style: none;
+  margin: 0 4rem;
+  padding: 0;
+  font-weight: 700;
+}
+.LinkContainer ul li {
+  padding-left: 0.5rem;
+  margin: 1rem 0;
+}
+
+.LinkContainer ul li a:hover,
+.LinkContainer ul li a:active {
+   
+}
+
+.LinkContainer ul li:first-of-type {
+  color: rgb(221, 7, 7);
+  background-color: chartreuse;
+  padding: 0.5rem;
+  border: 2px solid rgb(221, 7, 7);
+}
+.LinkContainer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+.LogoContainer {
+  height: 25%;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -2rem;
+}
+.Logo {
+  background-image: url("../../../assets/mountain.webp");
+  background-repeat: no-repeat;
+  background-size: 8rem 8.1rem;
+  height: 8rem;
+  width: 8.1rem;
+
+  /* z-index: 101; */
+}
+
+@media screen and (min-width: 700px) {
+  .sideDrawer {
+    display: none;
+  }
+}

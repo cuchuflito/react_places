@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { AuthContext } from "./shared/context/auth-context";
+import { useAuth } from "./shared/hooks/auth-hook";
+import Navigation from "./shared/components/Navigation";
+import Auth from "./user/pages/Auth";
 
 function App() {
+  const { token, login, logout, userId } = useAuth();
+
+  let routes;
+
+  if (token) {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          {/* <Users /> */}
+        </Route>
+        <Route path="/:userId/places">{/* <UserPlaces /> */}</Route>
+        <Route path="/places/new">{/* <NewPlace /> */}</Route>
+        <Route path="/places/:placeId">{/* <UpdatePlace /> */}</Route>
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          {/* all places from all users */}
+        </Route>
+        <Route path="/:userId/places">{/* places from user */}</Route>
+        {/* default case */}
+        <Route path="/auth">
+          <Auth />
+        </Route>
+        <Redirect to="/auth" />
+      </Switch>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token,
+        userId,
+        login,
+        logout,
+      }}
+    >
+      <BrowserRouter>
+        <Navigation />
+        <main>
+          <Switch>{routes}</Switch>
+        </main>
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 

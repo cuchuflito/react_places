@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');.Navbar {
+  height: 4rem;
+  background-color: aquamarine;
+  /* display: flex; */
+  /* display: flex; */
+}
+.NavCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.Navbar a{
+    text-decoration: none;
+}
+
+.Logo {
+  background-image: url("../../../assets/mountain.webp");
+  background-repeat: no-repeat;
+  background-size: 2.5rem 2.5rem;
+  height: 2.5rem;
+  width: 2.7rem;
+}
+
+.LogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Name {
+    
+  margin-left: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-top: 0.3rem;
+  color: teal;
+  font-family: 'Mansalva', cursive;}
+
+.toggleBtn {
+  border-color: transparent;
+  font-size: 1.25rem;
+  background: transparent;
+  margin: 0;
+  border: 0;
+}
+
+.LinksContainer {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .toggleBtn {
+    display: none;
+  }
+  .Navbar {
+  }
+  .LinksContainer {
+    display: flex;
+  }
+
+  .LinksContainer ul {
+    list-style: none;
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+  }
+
+  .LinksContainer ul li {
+    margin-right: 1rem;
+  }
+  .LinksContainer ul li:first-of-type {
+    color: rgb(221, 7, 7);
+    background-color: chartreuse;
+    padding: 0.5rem;
+    border: 2px solid rgb(221, 7, 7);
+  }
+  .LinksContainer ul li a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .toggleBtn {
+    visibility: hidden;
+  }
+}
