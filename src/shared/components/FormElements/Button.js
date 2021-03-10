@@ -6,9 +6,9 @@ function Button(props) {
   if (props.href) {
     return (
       <a
-        className={`${classes.Button} ${classes.Button`_${
-          props.size || "default"
-        }`} ${props.inverse && classes.ButtonInverse} ${
+        className={`${classes.Button}
+        ${classes[`Button_${props.size || "default"}`]}
+        ${props.inverse && classes.ButtonInverse} ${
           props.danger && classes.ButtonDanger
         }`}
         href={props.href}
@@ -22,9 +22,8 @@ function Button(props) {
       <Link
         to={props.to}
         exact={props.exact}
-        className={`${classes.Button} ${classes.Button`_${
-          props.size || `default`
-        }`} 
+        className={`${classes.Button} 
+          ${classes[`Button_${props.size || "default"}`]}
           ${props.inverse && classes.ButtonInverse} 
           ${props.danger && classes.ButtonDanger}`}
       >
@@ -34,15 +33,14 @@ function Button(props) {
   }
   return (
     <button
-      className={}
       disabled={props.disabled}
       onClick={props.onClick}
       type={props.type}
-      className={`${classes.Button} ${classes.Button`_${
-        props.size || "default"
-      }`} 
-      ${props.inverse && classes.ButtonInverse}
-    ${props.danger && classes.ButtonDanger}`}
+      className={`${classes.Button} 
+        ${classes[`Button_${props.size || "default"}`]}
+        ${props.danger && classes.ButtonDanger}   
+        ${props.inverse && classes.ButtonInverse} 
+        `}
     >
       {props.children}
     </button>

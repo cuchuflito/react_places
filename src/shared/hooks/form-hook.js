@@ -9,8 +9,10 @@ const formReducer = (state, action) => {
           continue;
         }
         if (inputId === action.inputId) {
+          // change validty of the overall form using validty of selected input
           formIsValid = formIsValid && action.isValid;
         } else {
+          // leave as it was other inputs
           formIsValid = formIsValid && state.inputs[inputId].isValid;
         }
       }

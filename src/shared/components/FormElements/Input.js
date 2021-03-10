@@ -1,5 +1,6 @@
 import classes from "./Input.module.css";
 import React, { useReducer, useEffect } from "react";
+import { validate } from "../../../util/validators";
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -73,12 +74,13 @@ function Input(props) {
       className={`${classes.formControl} ${
         !inputState.isValid &&
         inputState.isTouched &&
-        classes.formControl_Invalid
+        classes.formControl_invalid
       }`}
     >
       <label htmlFor={props.id}>{props.label}</label>
       {element}
-      {!inputState.isValid && inputState.isTouched && <p>{props.onError}</p>}
+      
+      {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
     </div>
   );
 }

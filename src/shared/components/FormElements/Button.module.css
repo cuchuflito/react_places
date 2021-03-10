@@ -1,12 +1,12 @@
 .Button {
   font: inherit;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #ff0055;
+  border: 1px solid darkcyan;
   border-radius: 4px;
-  background: #ff0055;
-  color: white;
+  background: aquamarine;
+  color: darkslategray;
   cursor: pointer;
-  margin-right: 1rem;
+  /* margin-right: 0rem; */
   text-decoration: none;
   display: inline-block;
 }
@@ -24,12 +24,13 @@
 .ButtonInverse:hover,
 .ButtonInverse:active {
   color: white;
-  background: #ff0055;
+  background: aquamarine;
 }
 
 .ButtonDanger {
   background: #830000;
   border-color: #f34343;
+  color: white
 }
 
 .ButtonDanger:hover,

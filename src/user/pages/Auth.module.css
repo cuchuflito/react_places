@@ -1,7 +1,7 @@
 .Auth {
   width: 75%;
-  background-color: red;
-  margin: 2rem auto;
+  /* background-color: red; */
+  margin: 3rem auto;
   height: 70vh;
 }
 
@@ -11,4 +11,13 @@
 
 .authContainer h1{
     text-align: center;
+}
+.AuthenticationCard{
+  text-align: center;
+  width:90%;
+  margin:3rem auto;
+  max-width: 25rem;
+}
+.AuthenticationCard form{
+  margin-bottom: 1rem;
 }
