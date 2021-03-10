@@ -6,7 +6,7 @@ import classes from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
   const content = (
-    <div className={`${classes.Modal} ${props.className}`} style={props.style}>
+    <div ref={props.nodeRef} className={`${classes.Modal} ${props.className}`} style={props.style}>
       <header className={`${classes.ModalHeader} ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
@@ -26,17 +26,19 @@ const ModalOverlay = (props) => {
 };
 
 const Modal = (props) => {
+  const nodeRef = React.useRef(null);
   return (
     <Fragment>
       {props.show && <Backdrop onClick={props.onCancel} />}
       <CSSTransition
         in={props.show}
         mountOnEnter
+        nodeRef={nodeRef}
         unmountOnExit
         timeout={200}
-        classNames={classes.Modal} // corregir css
+        classNames='modal' // corregir css
       >
-        <ModalOverlay {...props} />
+        <ModalOverlay nodeRef={nodeRef} {...props} />
       </CSSTransition>
     </Fragment>
   );

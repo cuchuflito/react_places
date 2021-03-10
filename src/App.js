@@ -4,6 +4,7 @@ import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 import Navigation from "./shared/components/Navigation";
 import Auth from "./user/pages/Auth";
+import Users from "./user/pages/Users";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -26,7 +27,7 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact>
-          {/* all places from all users */}
+          <Users />
         </Route>
         <Route path="/:userId/places">{/* places from user */}</Route>
         {/* default case */}
