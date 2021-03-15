@@ -15,7 +15,7 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact>
-          {/* <Users /> */}
+          <Users />
         </Route>
         <Route path="/:userId/places">{/* <UserPlaces /> */}</Route>
         <Route path="/places/new">{/* <NewPlace /> */}</Route>

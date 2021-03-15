@@ -1,8 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { ErrorModal, LoadingSpinner } from "../../shared/components/UIElements";
-
-const URL = 'https://jsonplaceholder.typicode.com/posts'
+import {
+  ErrorModal,
+  LoadingSpinner,
+  Avatar,
+} from "../../shared/components/UIElements";
+import UserList from "../components/UserList";
+const URL = "http://192.168.1.2:9000/api/users";
 
 export const Users = () => {
   // const [isLoading, setIsLoading] = useState(false);
@@ -11,14 +15,18 @@ export const Users = () => {
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  useState(async () => {
+  useEffect(() => {
     // send request
-    console.log('before')
-    try {
-      const responseData = await sendRequest(URL);
-      setLoadedUsers(responseData.users);
-    } catch (err) {}
-  }, [sendRequest]);
+    console.log("before");
+    const getUsers = async () => {
+      try {
+        const responseData = await sendRequest(URL);
+        console.log(responseData);
+        setLoadedUsers(responseData.users);
+      } catch (err) {}
+    };
+    getUsers();
+  }, []);
 
   // const errorHandler = () => {
   //   clearError(null);
@@ -32,7 +40,7 @@ export const Users = () => {
           <LoadingSpinner />
         </div>
       )}
-      {/* {!isLoading && loadedUsers && <UserList items={loadedUsers} />} */}
+      {!isLoading && loadedUsers && <UserList users={loadedUsers} />}
     </Fragment>
   );
 };
