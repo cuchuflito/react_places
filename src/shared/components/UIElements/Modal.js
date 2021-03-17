@@ -6,7 +6,11 @@ import classes from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
   const content = (
-    <div ref={props.nodeRef} className={`${classes.Modal} ${props.className}`} style={props.style}>
+    <div
+      ref={props.nodeRef}
+      className={`${classes.Modal} ${props.className}`}
+      style={props.style}
+    >
       <header className={`${classes.ModalHeader} ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
@@ -18,7 +22,9 @@ const ModalOverlay = (props) => {
         <div className={`${classes.ModalContent} ${props.footerClass}`}>
           {props.children}
         </div>
-        <footer>{props.footer}</footer>
+        <footer className={classes.footer}>
+          {props.footer}
+        </footer>
       </form>
     </div>
   );
@@ -36,7 +42,7 @@ const Modal = (props) => {
         nodeRef={nodeRef}
         unmountOnExit
         timeout={200}
-        classNames='modal' // corregir css
+        classNames="modal" // corregir css
       >
         <ModalOverlay nodeRef={nodeRef} {...props} />
       </CSSTransition>

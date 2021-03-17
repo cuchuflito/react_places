@@ -8,7 +8,7 @@ function ErrorModal(props) {
       onCancel={props.onClear}
       header="An Error occurred!"
       show={!!props.error}
-      footer={<Button onClick={props.onClear}>Continue</Button>}
+      footer={<Button danger onClick={props.onClear}>Continue</Button>}
     >
       <p>{props.error}</p>
     </Modal>

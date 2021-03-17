@@ -5,6 +5,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 import Navigation from "./shared/components/Navigation";
 import Auth from "./user/pages/Auth";
 import Users from "./user/pages/Users";
+import UserPlaces from "./places/pages/UserPlaces";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -17,7 +18,9 @@ function App() {
         <Route path="/" exact>
           <Users />
         </Route>
-        <Route path="/:userId/places">{/* <UserPlaces /> */}</Route>
+        <Route path="/:userId/places">
+          <UserPlaces />
+        </Route>
         <Route path="/places/new">{/* <NewPlace /> */}</Route>
         <Route path="/places/:placeId">{/* <UpdatePlace /> */}</Route>
         <Redirect to="/" />
@@ -29,8 +32,9 @@ function App() {
         <Route path="/" exact>
           <Users />
         </Route>
-        <Route path="/:userId/places">{/* places from user */}</Route>
-        {/* default case */}
+        <Route path="/:userId/places">
+          <UserPlaces />
+        </Route>
         <Route path="/auth">
           <Auth />
         </Route>

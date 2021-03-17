@@ -1,19 +1,26 @@
 .Modal {
-  z-index: 100;
+  z-index: 900;
   position: fixed;
   top: 22vh;
   left: 10%;
   width: 80%;
-  background-color: white;
+  background: ivory;
+  /* background-color: white; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
+  /* COLOR:rED; */
 }
 
 .ModalHeader {
+  box-sizing: border-box  ;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
   width: 100%;
   padding: 1rem 0.5rem;
-  background-color: #2a006e;
-  color: white;
+  /* background-color: #2a006e; */
+  background-color: aquamarine;
+  /* color: white; */
+  color: #2a006e;
 }
 
 .ModalHeader h2 {
@@ -27,11 +34,16 @@
 .ModalFooter {
   padding: 1rem 0.5rem;
 }
-
+.footer{
+  margin-left:0.5rem;
+  padding-bottom: 0.5rem;
+  
+}
 @media screen and (min-width: 700px) {
   .Modal {
     left: calc(50% - 20rem);
     width: 40rem;
+    /* background: red; */
   }
 }
 

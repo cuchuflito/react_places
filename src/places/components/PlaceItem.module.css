@@ -1,0 +1,56 @@
+.PlaceItem {
+  margin: 1rem 0;
+}
+
+.Content {
+  padding: 0;
+}
+
+.Info {
+  padding: 1rem;
+  text-align: center;
+}
+.Image {
+  width: 100%;
+  height: 12.5rem;
+  margin-right: 1.5rem;
+}
+
+.Image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.PlaceItem h2,
+.PlaceItem h3,
+.PlaceItem p {
+  margin: 0 0 0.5rem 0;
+}
+
+.Actions {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+.Actions button,
+.Actions a {
+  margin: 0.5rem;
+}
+
+.placeItemModalContent {
+  padding: 0;
+}
+.placeItemModalActions {
+  text-align: right;
+}
+
+.MapContainer {
+  height: 15rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .Image {
+    height: 20rem;
+  }
+}
