@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 let logoutTimer;
 
@@ -8,10 +8,9 @@ export const useAuth = () => {
   const [userId, setUserId] = useState(false);
 
   const login = useCallback((uid, token, expirationDate) => {
-    console.log("login executed in [auth-hook]");
+    console.log("login");
     setUserId(uid);
-    setToken(uid);
-    setToken(token);
+    setToken(token); //tokenExpirationDate no tiene nada q ver con el del estado son 2 variables distintas
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
@@ -26,15 +25,13 @@ export const useAuth = () => {
   }, []);
 
   const logout = useCallback(() => {
-    console.log("logout executed in [auth-hook]");
     setToken(false);
-    setUserId(null);
     setTokenExpirationDate(null);
+    setUserId(null);
     localStorage.removeItem("userData");
   }, []);
 
   useEffect(() => {
-    console.log("first useEffect executed in [Auth-hook]");
     if (token && tokenExpirationDate) {
       const remainingTime =
         tokenExpirationDate.getTime() - new Date().getTime();
@@ -42,11 +39,9 @@ export const useAuth = () => {
     } else {
       clearTimeout(logoutTimer);
     }
-  }, [logout, token, tokenExpirationDate]);
+  }, [token, logout, tokenExpirationDate]);
 
   useEffect(() => {
-    console.log("second useEffect executed in [Auth-hook]");
-
     const storedData = JSON.parse(localStorage.getItem("userData"));
     if (
       storedData &&

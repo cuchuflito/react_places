@@ -9,6 +9,7 @@ import {
 import { Button } from "../../shared/components/FormElements";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+// import { useHistory } from "react-router-dom";
 import classes from "./PlaceItem.module.css";
 
 const PlaceItem = (props) => {
@@ -21,7 +22,7 @@ const PlaceItem = (props) => {
   const closeMapHandler = () => setShowMap(false);
 
   const canceldeleteHandler = () => {
-    console.log(showMap)
+    console.log(showMap);
     setShowConfirmModal(false);
   };
   const showDeleteWarningHandler = () => {
@@ -40,7 +41,6 @@ const PlaceItem = (props) => {
       props.onDelete(props.id);
     } catch (err) {}
   };
-
 
   return (
     <Fragment>
@@ -67,7 +67,11 @@ const PlaceItem = (props) => {
             <Button inverse onClick={canceldeleteHandler}>
               CANCEL
             </Button>
-            <Button danger inverse onClick={confirmDeleteHandler}>
+            <Button
+              danger
+              onClick={confirmDeleteHandler}
+              externalClass={classes.ModalButtonDelete}
+            >
               DELETE
             </Button>
           </Fragment>
@@ -94,12 +98,13 @@ const PlaceItem = (props) => {
           </div>
           <div className={classes.Actions}>
             <Button inverse onClick={openMapHandler}>
-              VIEW ON MAP
+              MAP
             </Button>
-            {auth.userId === props.cretorId && (
+
+            {auth.userId === props.creatorId && (
               <Button to={`/places/${props.id}`}>EDIT</Button>
             )}
-            {auth.userId === props.cretorId && (
+            {auth.userId === props.creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
                 DELETE
               </Button>

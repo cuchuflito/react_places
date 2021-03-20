@@ -49,6 +49,9 @@
   height: 15rem;
   width: 100%;
 }
+.ModalButtonDelete {
+  margin-left: 0.5rem;
+}
 @media (min-width: 768px) {
   .Image {
     height: 20rem;

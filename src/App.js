@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
@@ -6,12 +6,16 @@ import Navigation from "./shared/components/Navigation";
 import Auth from "./user/pages/Auth";
 import Users from "./user/pages/Users";
 import UserPlaces from "./places/pages/UserPlaces";
+import NewPlace from "./places/pages/NewPlace";
+import UpdatePlace from "./places/pages/updatePlace";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
 
-  let routes;
+  useEffect(() => console.log("token found"), []);
 
+  let routes;
+  // let token;
   if (token) {
     routes = (
       <Switch>
@@ -21,8 +25,12 @@ function App() {
         <Route path="/:userId/places">
           <UserPlaces />
         </Route>
-        <Route path="/places/new">{/* <NewPlace /> */}</Route>
-        <Route path="/places/:placeId">{/* <UpdatePlace /> */}</Route>
+        <Route path="/places/new" exact>
+          <NewPlace />
+        </Route>
+        <Route path="/places/:placeId">
+          <UpdatePlace />
+        </Route>
         <Redirect to="/" />
       </Switch>
     );
@@ -47,10 +55,10 @@ function App() {
     <AuthContext.Provider
       value={{
         isLoggedIn: !!token,
-        token,
-        userId,
-        login,
-        logout,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout,
       }}
     >
       <BrowserRouter>

@@ -5,9 +5,10 @@ import { validate } from "../../../util/validators";
 const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
+      console.log('[Input] action: change ',action.val)
       return {
         ...state,
-        value: action.value,
+        value: action.val,
         isValid: validate(action.val, action.validators),
       };
     case "TOUCH": {
@@ -32,7 +33,7 @@ function Input(props) {
   const { value, isValid } = inputState;
 
   useEffect(() => {
-    props.onInput(id, value, isValid);
+    onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
 
   const changeHandler = (event) => {

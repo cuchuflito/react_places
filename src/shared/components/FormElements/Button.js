@@ -6,7 +6,8 @@ function Button(props) {
   if (props.href) {
     return (
       <a
-        className={`${classes.Button}
+        style={props.style}
+        className={`${classes.Button} ${props.externalClass}
         ${classes[`Button_${props.size || "default"}`]}
         ${props.inverse && classes.ButtonInverse} ${
           props.danger && classes.ButtonDanger
@@ -22,7 +23,8 @@ function Button(props) {
       <Link
         to={props.to}
         exact={props.exact}
-        className={`${classes.Button} 
+        style={props.style}
+        className={`${classes.Button} ${props.externalClass}
           ${classes[`Button_${props.size || "default"}`]}
           ${props.inverse && classes.ButtonInverse} 
           ${props.danger && classes.ButtonDanger}`}
@@ -36,7 +38,8 @@ function Button(props) {
       disabled={props.disabled}
       onClick={props.onClick}
       type={props.type}
-      className={`${classes.Button} 
+      style={props.style}
+      className={`${classes.Button} ${props.externalClass}
         ${classes[`Button_${props.size || "default"}`]}
         ${props.danger && classes.ButtonDanger}   
         ${props.inverse && classes.ButtonInverse} 

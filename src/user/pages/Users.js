@@ -1,12 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import {
-  ErrorModal,
-  LoadingSpinner,
-  Avatar,
-} from "../../shared/components/UIElements";
+import { ErrorModal, LoadingSpinner } from "../../shared/components/UIElements";
 import UserList from "../components/UserList";
-const URL = "http://192.168.1.2:9000/api/users";
 
 export const Users = () => {
   // const [isLoading, setIsLoading] = useState(false);
@@ -20,13 +15,15 @@ export const Users = () => {
     console.log("before");
     const getUsers = async () => {
       try {
-        const responseData = await sendRequest(URL);
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/users`
+        );
         console.log(responseData);
         setLoadedUsers(responseData.users);
       } catch (err) {}
     };
     getUsers();
-  }, []);
+  }, [sendRequest]);
 
   // const errorHandler = () => {
   //   clearError(null);

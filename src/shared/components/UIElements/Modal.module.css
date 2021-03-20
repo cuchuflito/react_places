@@ -29,6 +29,10 @@
 
 .ModalContent {
   padding: 1rem 0.5rem;
+  
+}
+.ModalContent p{
+  text-align: justify;
 }
 
 .ModalFooter {

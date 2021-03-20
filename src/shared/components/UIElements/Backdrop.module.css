@@ -12,4 +12,7 @@
     .Backdrop {
       display: none;
     }
+    .show{
+      display: unset;
+    }
   }
