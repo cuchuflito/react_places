@@ -12,13 +12,13 @@ export const Users = () => {
 
   useEffect(() => {
     // send request
-    console.log("before");
+    //console.log("before");
     const getUsers = async () => {
       try {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/users`
         );
-        console.log(responseData);
+        //console.log(responseData);
         setLoadedUsers(responseData.users);
       } catch (err) {}
     };

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
@@ -12,7 +12,7 @@ import UpdatePlace from "./places/pages/updatePlace";
 function App() {
   const { token, login, logout, userId } = useAuth();
 
-  useEffect(() => console.log("token found"), []);
+  // useEffect(() => console.log("token found"), []);
 
   let routes;
   // let token;

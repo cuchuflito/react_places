@@ -156,7 +156,7 @@ const Auth = () => {
             errorText="Please a valid password, at least 6 characters."
             onInput={inputHandler}
           />
-          {console.log("form validty: ", formState)}
+          {/* {console.log("form validty: ", formState)} */}
           <button type="submit" disabled={!formState.isValid}>
             {isLoginMode ? "LOGIN" : "SIGNUP"}
           </button>

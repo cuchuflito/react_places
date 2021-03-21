@@ -10,7 +10,8 @@ const UserItem = ({ name, placeCount, id, image }) => {
         <Link to={`/${id}/places`}>
           <div className={classes.userItem_image}>
             <Avatar
-              image={`${process.env.REACT_APP_BACKEND_ASSETS_URL}/${image}`}
+              // image={`${process.env.REACT_APP_BACKEND_ASSETS_URL}/${image}`}
+              image={image}
               alt={`${name} avatar`}
             />
           </div>
