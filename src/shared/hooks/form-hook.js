@@ -18,6 +18,7 @@ const formReducer = (state, action) => {
           formIsValid = formIsValid && state.inputs[inputId].isValid;
         }
       }
+
       //console.log('input change2' ,action.inputId, action.value);
       return {
         ...state,
@@ -49,6 +50,7 @@ const useForm = (initialInputs, initialFormValidity) => {
 
   const setFormData = useCallback((inputData, formValidity) => {
     // console.log('set data')
+    // console.log()
     dispatch({
       type: "SET_DATA",
       inputs: inputData,
