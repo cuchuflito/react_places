@@ -85,7 +85,7 @@ const Auth = () => {
         );
         auth.login(responseData.userId, responseData.token);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     } else {
       try {
@@ -94,7 +94,7 @@ const Auth = () => {
         formData.append("name", formState.inputs.name.value);
         formData.append("password", formState.inputs.password.value);
         formData.append("image", formState.inputs.image.value);
-        // console.log(formData.get('image'));
+        // console.log(formData.get("image"));
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/users/signup`,
           "POST",
